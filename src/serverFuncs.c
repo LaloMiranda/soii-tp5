@@ -14,7 +14,8 @@ void eraseInstance(struct _u_instance *instance){
 }
 
 void addEndPoints(struct _u_instance *instance){
-    ulfius_add_endpoint_by_val(instance, "GET", URL_PRINT, NULL, 0, &testPage, NULL);
+    ulfius_add_endpoint_by_val(instance, "POST", URL_INC, NULL, 0, &incCounter, NULL);
+    ulfius_add_endpoint_by_val(instance, "GET", URL_PRINT, NULL, 0, &getCounter, NULL);
     ulfius_set_default_endpoint(instance, &defaultPage, NULL);
 }
 
@@ -36,11 +37,25 @@ int defaultPage(const struct _u_request *request, struct _u_response *response, 
     return U_CALLBACK_CONTINUE;
 }
 
-int testPage(const struct _u_request *request, struct _u_response *response, void *user_data){
-
+int incCounter(const struct _u_request *request, struct _u_response *response, void *user_data){
     (void)user_data;
     (void)request;
-    ulfius_set_string_body_response(response, 200, "200\n");
+    
+    counter ++;
 
     return U_CALLBACK_CONTINUE;
+}
+
+int getCounter(const struct _u_request *request, struct _u_response *response, void *user_data){
+    (void)user_data;
+    (void)request;
+
+    char message[100];
+    json_t* js;
+    sprintf(message, "Valor en el contador: %i", counter);
+    js = json_pack("{s:s}", "GET:", message);
+
+    ulfius_set_json_body_response(response, 409, js);
+    return U_CALLBACK_CONTINUE;
+
 }
