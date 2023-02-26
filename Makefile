@@ -10,6 +10,7 @@ serverFuncs:
 	$(CC) $(CFLAGS) -c ./src/serverFuncs.c -lulfius -ljansson -o ./obj/serverFuncs.o
 
 install:
+	sudo apt install binutils
 	sudo apt install build-essential 
 	sudo apt install libulfius-dev
 

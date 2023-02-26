@@ -21,39 +21,25 @@ Se deberá utilizar y adaptar el cliente IPv$ de los laboratorio anteriores para
 
 La validación del sistema se debe realizar mediante la creación de al menos 100 procesos que interactúen con los endpoints creados.
 
-### Interacción con los endpoints
-Tenemos tres endpoints para interactuar:
+## Entrega
+Se deberá proveer los archivos fuente, así como cualquier otro archivo asociado a la compilación, archivos de proyecto "Makefile" y el código correctamente documentado, todo en el repositorio, donde le Estudiante debe demostrar avances semana a semana mediante _commits_.
 
-```shell
-curl -X POST    http://[Server IP]:8537/increment
-curl -X GET     http://[Server IP]:8537/imprimir
-curl -X POST    http://[Server IP].79:8537/reset
-```
+También se debe entregar un informe, guia tipo _How to_, explicando paso a paso lo realizado (puede ser un _Markdown_). El informe además debe contener el diseño de la solución con una explicacion detallada de la misma. Se debe asumir que las pruebas de compilación se realizarán en un equipo que cuenta con las herramientas típicas de consola para el desarrollo de programas (Ejemplo: gcc, make), y NO se cuenta con herramientas "GUI" para la compilación de los mismos (Ej: eclipse).
 
-El primer endpoint aumenta el contador en uno, el segundo devuelve el valor actual del contador y el tercero lo vuelve a cero, esta para testing nada mas.
 
-### Endpoint default
-En caso de no aputnar correctamente a un endpoint este pedido sera redireccionado a un *default endpoint* que devuelve el mensaje:
+### Criterios de Corrección
+- Se debe compilar el código con los flags de compilación: 
+    `-Wall -Pedantic -Werror -Wextra -Wconversion -std=gnu11`
+- La correcta gestion de memoria.
+- Dividir el código en módulos de manera juiciosa.
+- Estilo de código.
+- Manejo de errores
+- El código no debe contener errores, ni warnings.
+- El código no debe contener errores de cppcheck.
 
-```shell
-Page not found, try http://[Server IP]:8537/increment or http://[Server IP]:8537/imprimir
-```
 
-### Test
-En el repositorio hay un archivo *test.sh* que realiza una cantidad **amount** de incrementos al contador y luego obtiene el valor del mismo.
-
-```shell
-sh ./test.sh
-```
-
-## Dependencias
-Las dependencias son:
-- make
-- binutils
-- build-essential
-- libulfius-dev
-
-Se pueden instalar corriendo *make install*, requiere make.
+## Evaluación
+El presente trabajo práctico es individual deberá entregarse antes del viernes 13 de Mayo de 2022 a las 16:55 mediante el LEV. Será corregido y luego deberá coordinar una fecha para la defensa oral del mismo.
 
 ## Referencias y ayudas
 - [Ulfius HTTP Framework](https://github.com/babelouest/ulfius)
