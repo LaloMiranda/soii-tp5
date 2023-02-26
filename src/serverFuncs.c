@@ -16,6 +16,7 @@ void eraseInstance(struct _u_instance *instance){
 void addEndPoints(struct _u_instance *instance){
     ulfius_add_endpoint_by_val(instance, "POST", URL_INC, NULL, 0, &incCounter, NULL);
     ulfius_add_endpoint_by_val(instance, "GET", URL_PRINT, NULL, 0, &getCounter, NULL);
+    ulfius_add_endpoint_by_val(instance, "POST", URL_RESET, NULL, 0, &resetCounter, NULL);
     ulfius_set_default_endpoint(instance, &defaultPage, NULL);
 }
 
@@ -58,4 +59,13 @@ int getCounter(const struct _u_request *request, struct _u_response *response, v
     ulfius_set_json_body_response(response, 409, js);
     return U_CALLBACK_CONTINUE;
 
+}
+
+int resetCounter(const struct _u_request *request, struct _u_response *response, void *user_data){
+    (void)user_data;
+    (void)request;
+    
+    counter = 0;
+
+    return U_CALLBACK_CONTINUE;
 }

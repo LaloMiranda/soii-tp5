@@ -11,6 +11,7 @@
 #define PORT 8537
 #define URL_PRINT   "/imprimir"
 #define URL_INC     "/increment"
+#define URL_RESET   "/reset"
 
 int counter;
 
@@ -23,5 +24,6 @@ void startAPI(struct _u_instance *instance);
 int defaultPage(const struct _u_request *request, struct _u_response *response, void *user_data);
 int incCounter(const struct _u_request *request, struct _u_response *response, void *user_data);
 int getCounter(const struct _u_request *request, struct _u_response *response, void *user_data);
+int resetCounter(const struct _u_request *request, struct _u_response *response, void *user_data);
 
 #endif
