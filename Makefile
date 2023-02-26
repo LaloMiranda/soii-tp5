@@ -9,6 +9,10 @@ server: serverFuncs
 serverFuncs:
 	$(CC) $(CFLAGS) -c ./src/serverFuncs.c -lulfius -ljansson -o ./obj/serverFuncs.o
 
+install:
+	sudo apt install build-essential 
+	sudo apt install libulfius-dev
+
 clean:
 	rm -f ./bin/*
 	rm -f ./obj/*

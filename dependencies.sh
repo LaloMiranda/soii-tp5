@@ -1,1 +1,0 @@
-sudo apt install build-essential && libulfius-dev
