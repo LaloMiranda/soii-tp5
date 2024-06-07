@@ -13,8 +13,6 @@
 #define URL_INC     "/increment"
 #define URL_RESET   "/reset"
 
-int counter;
-
 void initInstance(struct _u_instance *instance);
 void eraseInstance(struct _u_instance *instance);
 void addEndPoints(struct _u_instance *instance);

@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS= -g #-Wall -pedantic -Werror -Wextra -Wconversion -std=gnu11
+CFLAGS= -g -Wall -pedantic -Werror -Wextra -Wconversion -std=gnu11
 
 all: clean server
 

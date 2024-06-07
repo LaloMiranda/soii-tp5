@@ -1,5 +1,7 @@
 #include "../include/serverFuncs.h"
 
+int counter;
+
 void initInstance(struct _u_instance *instance){
     if (ulfius_init_instance(instance, PORT, NULL, NULL) != U_OK)
     {
@@ -41,6 +43,7 @@ int defaultPage(const struct _u_request *request, struct _u_response *response, 
 int incCounter(const struct _u_request *request, struct _u_response *response, void *user_data){
     (void)user_data;
     (void)request;
+    (void)response;
     
     counter ++;
 
@@ -64,6 +67,7 @@ int getCounter(const struct _u_request *request, struct _u_response *response, v
 int resetCounter(const struct _u_request *request, struct _u_response *response, void *user_data){
     (void)user_data;
     (void)request;
+    (void)response;
     
     counter = 0;
 

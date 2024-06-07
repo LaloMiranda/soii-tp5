@@ -25,9 +25,9 @@ La validación del sistema se debe realizar mediante la creación de al menos 10
 Tenemos tres endpoints para interactuar:
 
 ```shell
-curl -X POST    http://[Server IP]:8537/increment
-curl -X GET     http://[Server IP]:8537/imprimir
-curl -X POST    http://[Server IP].79:8537/reset
+curl -X POST http://[Server IP]:8537/increment
+curl -X GET http://[Server IP]:8537/imprimir
+curl -X POST http://[Server IP]:8537/reset
 ```
 
 El primer endpoint aumenta el contador en uno, el segundo devuelve el valor actual del contador y el tercero lo vuelve a cero, esta para testing nada mas.
